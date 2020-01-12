@@ -1,0 +1,14 @@
+FROM node:12.14.1
+
+WORKDIR /frontend
+RUN apt-get update
+
+COPY package.json /frontend
+COPY package-lock.json /frontend
+RUN npm install
+
+COPY . /frontend
+
+EXPOSE 7890
+
+CMD npm start
